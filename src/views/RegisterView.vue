@@ -9,23 +9,28 @@
             <!-- <router-link :to="{name: 'login'}">Need an account?</router-link> -->
           </p>
           <form @submit.prevent="onSubmit">
-            <fieldset class="form-group  pt-2 pb-2">
-              <input type="text" class="form-control form-control-lg" placeholder="username" v-model="username"/>
+            <fieldset class="form-group pt-2 pb-2">
+              <input type="text" class="form-control form-control-lg" placeholder="username" v-model="username" />
             </fieldset>
-            <fieldset class="form-group  pt-2 pb-2">
-              <input type="text" class="form-control form-control-lg" placeholder="email" v-model="email"/>
+            <fieldset class="form-group pt-2 pb-2">
+              <input type="text" class="form-control form-control-lg" placeholder="email" v-model="email" />
             </fieldset>
-            <fieldset class="form-group  pt-2 pb-2">
-              <input type="password" class="form-control form-control-lg" placeholder="password" v-model="password"/>
+            <fieldset class="form-group pt-2 pb-2">
+              <input type="password" class="form-control form-control-lg" placeholder="password" v-model="password" />
             </fieldset>
-            <button class="btn btn-lg btn-primary pull-xs-rigth  pt-2 pb-2" :disabled="isSubmitting">
-              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" :hidden="!isSubmitting"></span>
+            <button class="btn btn-lg btn-primary pull-xs-rigth pt-2 pb-2" :disabled="isSubmitting">
+              <span
+                class="spinner-border spinner-border-sm"
+                role="status"
+                aria-hidden="true"
+                :hidden="!isSubmitting"
+              ></span>
               Sign Up
             </button>
           </form>
           <!-- <button class="btn btn-lg btn-primary pull-xs-rigth" @click="increaseCounter">inctees counter: {{ count }}</button> -->
           <!-- {{ isSubmitting }} -->
-          <McvValidationErrors v-if="validationErrors" :validationErrors="validationErrors"/>
+          <McvValidationErrors v-if="validationErrors" :validationErrors="validationErrors" />
         </div>
       </div>
     </div>
@@ -35,12 +40,12 @@
 <script>
 import McvValidationErrors from '@/components/ValidationErrors.vue'
 import {actionTypes} from '@/store/modules/auth'
-import { mapState } from 'vuex'
+import {mapState} from 'vuex'
 
 export default {
   name: 'McvRegister',
   components: {
-    McvValidationErrors
+    McvValidationErrors,
   },
   data() {
     return {
@@ -51,9 +56,9 @@ export default {
   },
   computed: {
     ...mapState({
-      isSubmitting: state => state.auth.isSubmitting,
-      validationErrors: state => state.auth.validationErrors,
-    })
+      isSubmitting: (state) => state.auth.isSubmitting,
+      validationErrors: (state) => state.auth.validationErrors,
+    }),
     // isSubmitting() {
     //   return this.$store.state.auth.isSubmitting
     // },
@@ -68,7 +73,7 @@ export default {
         .dispatch(actionTypes.register, {
           username: this.username,
           password: this.password,
-          email: this.email
+          email: this.email,
         })
         .then((user) => {
           console.log('successfully register user')

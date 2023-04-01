@@ -1,7 +1,6 @@
 <template>
   <p>VALIDATION ERROR:</p>
-  <ul class="error-messages" >
-    
+  <ul class="error-messages">
     <li v-for="errorMessage in errorMessages" :key="errorMessage">
       {{ errorMessage }}
     </li>

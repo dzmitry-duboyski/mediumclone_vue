@@ -8,20 +8,25 @@
             <RouterLink :to="{path: 'register'}">Need an account?</RouterLink>
           </p>
           <form @submit.prevent="onSubmit">
-            <fieldset class="form-group pt-2 pb-2 ">
+            <fieldset class="form-group pt-2 pb-2">
               <input type="text" class="form-control form-control-lg" placeholder="email" v-model="email" />
             </fieldset>
-            
+
             <fieldset class="form-group pt-2 pb-2">
               <input type="password" class="form-control form-control-lg" placeholder="password" v-model="password" />
             </fieldset>
-            
+
             <button class="btn btn-lg btn-primary pull-xs-rigth pt-2 pb-2" :disabled="isSubmitting">
-              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" :hidden="!isSubmitting"></span>
+              <span
+                class="spinner-border spinner-border-sm"
+                role="status"
+                aria-hidden="true"
+                :hidden="!isSubmitting"
+              ></span>
               Sign in
             </button>
           </form>
-          <McvValidationErrors v-if="validationErrors" :validationErrors="validationErrors"/>
+          <McvValidationErrors v-if="validationErrors" :validationErrors="validationErrors" />
         </div>
       </div>
     </div>
