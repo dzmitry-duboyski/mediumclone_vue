@@ -5,7 +5,7 @@
         <div class="col-md-6 offset-md-3 col-xs-12">
           <h1 class="text-xs-center">Sign in</h1>
           <p class="text-xs-center">
-            <RouterLink :to="{path: '#'}">Need an account?</RouterLink>
+            <RouterLink :to="{path: 'register'}">Need an account?</RouterLink>
           </p>
           <form @submit.prevent="onSubmit">
             <fieldset class="form-group pt-2 pb-2 ">
@@ -21,7 +21,7 @@
               Sign in
             </button>
           </form>
-            <McvValidationErrors v-if="validationErrors" :validationErrors="validationErrors" class="pt-10 pb-1"/>
+          <McvValidationErrors v-if="validationErrors" :validationErrors="validationErrors"/>
         </div>
       </div>
     </div>
@@ -31,7 +31,6 @@
 <script>
 import McvValidationErrors from '@/components/ValidationErrors.vue'
 import {actionTypes} from '@/store/modules/auth'
-console.log(actionTypes)
 
 export default {
   name: 'McvLogin',

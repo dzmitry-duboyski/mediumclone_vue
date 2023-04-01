@@ -1,4 +1,4 @@
-import {apiLogin, apiRegister} from '@/api/auth'
+import authApi from '@/api/auth'
 import {setItem, getItem} from '@/helpers/persistanceStorage'
 
 const state = {
@@ -57,7 +57,7 @@ const actions = {
   [actionTypes.register](context, credentials) {
     return new Promise((resolve) => {
       context.commit(mutationsTypes.registerStart)
-      apiRegister(credentials)
+      authApi.register(credentials)
         .then((response) => {
           context.commit(mutationsTypes.registerSuccess, response.data.user)
 
@@ -74,7 +74,7 @@ const actions = {
   [actionTypes.login](context, credentials) {
     return new Promise((resolve) => {
       context.commit(mutationsTypes.loginStart)
-      apiLogin(credentials)
+      authApi.login(credentials)
         .then((response) => {
           context.commit(mutationsTypes.loginSuccess, response.data.user)
 

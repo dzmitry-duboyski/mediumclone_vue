@@ -1,14 +1,14 @@
 import axios from "@/api/axios";
 
-const apiRegister = credentials => {
+const register = credentials => {
   return axios.post('/users', {user: credentials})
 } 
 
-const apiLogin = credentials => {
+const login = credentials => {
   return axios.post('/users/login', {user: credentials})
 } 
 
-export {
-  apiRegister,
-  apiLogin
+export default {
+  register,
+  login,
 }
